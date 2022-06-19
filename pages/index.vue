@@ -31,7 +31,7 @@ definePageMeta({
         <!--  animate-back-in-down animate-count-1 animate-duration-2s -->
         <div w-full h-full flex justify-center items-center mx-auto>
           <div class="card" flex flex-col justify-center space-y-4 items-center mx-auto p-4 rounded-xl>
-            <img h-40 rounded-full src="profile/profile.png" alt="Matias Fanger" transition duration-500 hover:shadow-gray-400 shadow-lg ring-2 ring-gray-800>
+            <img h-40 rounded-full src="/profile/profile.png" alt="Matias Fanger" transition duration-500 hover:shadow-gray-400 shadow-lg ring-2 ring-gray-800>
             <h1 text-4xl tracking-widest flex gap-4>
               Hello, Universe! <div i-twemoji:waving-hand animate-tada animate-count-1 animate-duration-2s hover:animate-count-infinite /> I'm <span style="text-underline-offset: 0.45rem" class="glow">Matias</span>
             </h1>
