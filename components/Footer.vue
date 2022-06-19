@@ -17,3 +17,11 @@
   </footer>
 </template>
 
+<style scoped>
+.socials {
+  @apply flex gap-2;
+}
+.socials ::v-deep(a) {
+  @apply text-3xl inline-block cursor-pointer transition duration-200;
+}
+</style>
