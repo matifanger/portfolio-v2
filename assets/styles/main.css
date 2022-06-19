@@ -1,0 +1,3 @@
+a[aria-current="pages"]  {
+  @apply url;
+}

@@ -1,9 +1,27 @@
+<script setup lang="ts">
+const route = useRoute()
+
+useHead({
+  title: `${route.meta.title ? `${route.meta.title} - ` : ''}Matias Fanger`,
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  charset: 'utf-8',
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { hid: 'description', name: 'description', content: 'Matias Fanger Full Stack Engineer. See my portfolio/blog/projects/guides here.' },
+  ],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/portfolio.png' },
+  ],
+})
+const projects = useProjectsStore()
+projects.loadProjects()
+</script>
+
 <template>
-  <main class="py-20 px-10 text-center">
+  <main>
+    <LayoutHeader />
     <slot />
-    <Footer />
-    <div class="mt-5 mx-auto text-center opacity-25 text-sm">
-      [Home Layout]
-    </div>
+    <GoUp />
   </main>
 </template>

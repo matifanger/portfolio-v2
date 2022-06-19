@@ -10,15 +10,21 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.1",
     "@iconify-json/carbon": "^1.1.5",
-    "@iconify-json/twemoji": "^1.1.4",
     "@iconify-json/mdi": "^1.1.19",
+    "@iconify-json/twemoji": "^1.1.4",
+    "@nuxt/content": "^2.0.1",
     "@nuxtjs/color-mode": "^3.1.3",
     "@pinia/nuxt": "^0.1.9",
     "@unocss/nuxt": "^0.37.4",
+    "@unocss/preset-icons": "^0.38.1",
     "@vueuse/nuxt": "^8.6.0",
     "eslint": "^8.17.0",
     "nuxt": "^3.0.0-rc.3",
     "pinia": "^2.0.14",
     "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "nuxt-content-git": "^2.0.14",
+    "sitemap": "^7.1.1"
   }
 }
