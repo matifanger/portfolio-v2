@@ -27,7 +27,7 @@ interface Projects {
     <section class="profile" z-100 relative>
       <div w-full h-full flex justify-center items-center mx-auto>
         <div z-100 flex justify-center space-y-4 items-center mx-auto p-4 rounded-xl container gap-16>
-          <img h-40 rounded-full src="profile/profile.png" alt="Matias Fanger" transition duration-500 hover:shadow-gray-400 shadow-lg ring-2 ring-gray-800>
+          <img h-40 rounded-full src="/profile/profile.png" alt="Matias Fanger" transition duration-500 hover:shadow-gray-400 shadow-lg ring-2 ring-gray-800>
 
           <div text-center space-y-10 max-w-md>
             <h2 text-4xl>
