@@ -26,15 +26,15 @@
 -   [x] Vite
 -   [x] TypeScript
 
-## [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction)
+### [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction)
 
 # Highly recommended documentations
 
-## [VueFire](https://vuefire.vuejs.org/)
+### [VueFire](https://vuefire.vuejs.org/)
 
-## [Firestore](https://firebase.google.com/docs/firestore?hl=es-419)
+### [Firestore](https://firebase.google.com/docs/firestore?hl=es-419)
 
-## [Auth](https://firebase.google.com/docs/auth?hl=es-419)
+### [Auth](https://firebase.google.com/docs/auth?hl=es-419)
 
 # How to setup Firebase
 
