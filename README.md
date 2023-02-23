@@ -1,7 +1,7 @@
 <h1 align="center">Nuxt 3 template - Firebase Version</h1>
 <p align="center">A Firebase template for Nuxt 3. A few examples inside 🙌</p>
 <p align="center">
-  <a href="https://nuxt3-template-basic.netlify.app/">Online Preview<a>
+  <a href="https://nuxt3-template-firebase.netlify.app/">Online Preview<a>
 </p>
 
 ![image](https://i.imgur.com/Qux8Gzd.png)
