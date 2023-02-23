@@ -10,4 +10,3 @@ dist
 nuxt.d.ts
 .output
 .idea
-yarn.lock
