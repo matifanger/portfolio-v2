@@ -1,17 +1,16 @@
-#
-
 <h1 align="center">Nuxt 3 template - Firebase Version</h1>
-<p align=center>A Firebase template for Nuxt 3. A few examples inside 🙌</p>
-
-## Preview
+<p align="center">A Firebase template for Nuxt 3. A few examples inside 🙌</p>
+<p align="center">
+  <a href="https://nuxt3-template-basic.netlify.app/">Online Preview<a>
+</p>
 
 ![image](https://i.imgur.com/Qux8Gzd.png)
 
-## More templates
+# More templates
 
-<p align=center>[Basic Version](https://github.com/matifanger/nuxt3-template-basic)</p>
+<a style="font-size:20px" href="https://github.com/matifanger/nuxt3-template-basic" align="center">Basic Version</a>
 
-## What's included
+# What's included
 
 -   [x] [Tailwind CSS](https://tailwindcss.com/)
 -   [x] [HeadlessUI](https://headlessui.dev/)
@@ -27,15 +26,17 @@
 -   [x] Vite
 -   [x] TypeScript
 
-[Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction)
+## [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction)
 
-## Highly recommended documentations
+# Highly recommended documentations
 
-[VueFire](https://vuefire.vuejs.org/)
-[Firestore docs](https://firebase.google.com/docs/firestore?hl=es-419)
-[Auth docs](https://firebase.google.com/docs/auth?hl=es-419)
+## [VueFire](https://vuefire.vuejs.org/)
 
-## How to setup Firebase
+## [Firestore](https://firebase.google.com/docs/firestore?hl=es-419)
+
+## [Auth](https://firebase.google.com/docs/auth?hl=es-419)
+
+# How to setup Firebase
 
 Open `nuxt.config.ts` file and add your Firebase config.
 
@@ -55,7 +56,7 @@ vuefire: {
     },
 ```
 
-## How to install more icon packages
+# How to install more icon packages
 
 Available collections [here](https://icones.js.org/)
 
@@ -69,7 +70,7 @@ yarn add --dev @iconify-json/mdi
 yarn add --dev @iconify/json
 ```
 
-## Setup
+# Setup
 
 Make sure to install the dependencies:
 
@@ -86,7 +87,7 @@ npm install
 pnpm install
 ```
 
-## Development Server
+# Development Server
 
 Start the development server on http://localhost:3000
 
