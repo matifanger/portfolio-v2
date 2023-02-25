@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     },
 
     vuefire: {
-      auth: true,
+      auth: false,
       config: JSON.parse(process.env.FIREBASE_CONFIG!)
       // admin: {
       //   serviceAccount: 'path/to/credentials.json',

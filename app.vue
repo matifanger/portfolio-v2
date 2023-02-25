@@ -1,18 +1,16 @@
 <script lang="ts" setup>
-const router = useRouter()
-const route = useRoute()
-const user = useCurrentUser()
-
-onMounted(() => {
-    watch(user, (user, prevUser) => {
-        if (prevUser && !user) {
-            // user logged out
-            router.push('/login')
-        } else if (user && typeof route.query.redirect === 'string') {
-            // user logged in
-            router.push(route.query.redirect)
-        }
-    })
+useHead({
+    title: 'Matias Fanger - SSR Vue Developer',
+    // titleTemplate: (title) => `${title} | MySite`,
+    meta: [{ name: 'description', content: 'Matias Fanger - SSR Vue Developer Portfolio' }],
+    // icon
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/logo.png',
+        },
+    ],
 })
 </script>
 
