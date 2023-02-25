@@ -45,7 +45,7 @@ onMounted(() => {
             </p>
         </div>
 
-        <div class="grid mx-auto sm:grid-cols-3">
+        <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3">
             <a
                 v-for="(item, key) in props.info"
                 :key="key"

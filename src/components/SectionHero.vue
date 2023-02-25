@@ -2,19 +2,19 @@
 
 <template>
     <div
-        class="relative overflow-hidden container flex items-center justify-center py-6 lg:py-44 lg:pt-44 bg h-screen"
+        class="relative overflow-hidden container flex items-center justify-center py-6 md:py-44 md:pt-44 bg h-screen"
     >
         <div class="mx-auto max-w-4xl text-center">
             <div class="flex flex-col">
-                <main class="text-white text-3xl lg:text-6xl font-bold leading-[45px] lg:leading-[70px]">
+                <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
                     Hey! I'm
                 </main>
                 <span
-                    class="text-4xl lg:text-7xl leading-[50px] lg:leading-[100px] font-semibold bg-gradient-to-r bg-clip-text text-transparent from-indigo-500 via-purple-500 to-indigo-500 animate-text"
+                    class="text-4xl md:text-7xl leading-[50px] md:leading-[100px] font-semibold bg-gradient-to-r bg-clip-text text-transparent from-indigo-500 via-purple-500 to-indigo-500 animate-text"
                 >
                     Matias Fanger
                 </span>
-                <main class="text-white text-3xl lg:text-6xl font-bold leading-[45px] lg:leading-[70px]">
+                <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
                     <span
                         class="bg-gradient-to-r bg-clip-text text-transparent from-[#f9d56e] via-yellow-200 to-[#f9d56e] animate-text"
                         >A SSR Vue Dev</span
