@@ -12,20 +12,20 @@
                 <div class="flex gap-1">
                     <a
                         v-if="info.fullimage"
-                        class="w-fit flex items-center hover:text-yellow-400 transition"
+                        class="w-fit flex items-center hover:text-[#8F5BF4] transition"
                         :href="info.fullimage"
                         target="_blank"
                     >
-                        <div class="i-mdi:fullscreen" />
+                        <div class="i-mdi:image" />
                     </a>
                     <a
                         v-if="info.url"
-                        class="w-fit flex items-center hover:text-yellow-400 transition"
+                        class="w-fit flex items-center hover:text-[#8F5BF4] transition"
                         :href="info.url"
                         target="_blank"
                     >
                         <!-- <IconLinkExternal class="h-5 w-5 hover:text-gray-400 transition" /> -->
-                        <div class="i-mdi:link" />
+                        <div class="i-mdi:open-in-new" />
                     </a>
                 </div>
             </h1>
