@@ -5,7 +5,7 @@ import { collection } from 'firebase/firestore'
 const db = useFirestore()
 
 const jobs = useCollection(collection(db, 'jobs'))
-// const saas = useCollection(collection(db, 'saas'))
+const saas = useCollection(collection(db, 'saas'))
 
 const sortedJobs = computed(() => {
     return jobs.value.sort((a, b) => {
@@ -30,7 +30,7 @@ useHead({
 <template>
     <div>
         <SectionHero />
-        <!-- <SectionSaas v-if="saas.length" :info="saas" /> -->
+        <SectionSaas v-if="saas.length" :info="saas" />
         <SectionBlog v-if="sortedJobs.length" :info="sortedJobs" />
         <SectionFeatures />
     </div>

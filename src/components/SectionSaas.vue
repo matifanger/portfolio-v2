@@ -78,16 +78,22 @@ onMounted(() => {
                         </div>
 
                         <div class="flex flex-col gap-3 pt-1 md:pt-4">
-                            <div class="flex items-center text-gray-700 dark:text-gray-200">
+                            <div
+                                v-if="item.showmmr"
+                                class="flex items-center text-gray-700 dark:text-gray-200"
+                            >
                                 <!-- <IconMoney class="h-6 w-6 text-green-500" /> -->
 
-                                <h1 class="px-2 text-sm">{{ item.mmr || '???' }} MMR</h1>
+                                <h1 class="text-sm">{{ item.mmr }} MMR</h1>
                             </div>
 
-                            <div class="flex items-center text-gray-700 dark:text-gray-200">
+                            <div
+                                v-if="item.device"
+                                class="flex items-center text-gray-700 dark:text-gray-200"
+                            >
                                 <!-- <IconBoxes class="h-6 w-6" /> -->
 
-                                <h1 class="px-2 text-sm">{{ item.device || '???' }}</h1>
+                                <h1 class="text-sm">{{ item.device }}</h1>
                             </div>
                         </div>
                     </div>
