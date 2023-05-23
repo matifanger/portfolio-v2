@@ -9,10 +9,6 @@
 <style lang="postcss">
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-* {
-    scrollbar-width: auto;
-    scrollbar-color: #8f54a0 #ffffff;
-}
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
