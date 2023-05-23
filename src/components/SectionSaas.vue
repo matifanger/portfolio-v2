@@ -33,7 +33,7 @@ onMounted(() => {
 
 <template>
     <div class="py-12 mx-auto container">
-        <div class="w-full px-4 mx-auto">
+        <div class="w-full mx-auto">
             <h2
                 id="saas"
                 class="tracking-wide uppercase text-black dark:text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
@@ -46,13 +46,7 @@ onMounted(() => {
         </div>
 
         <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3">
-            <a
-                v-for="(item, key) in props.info"
-                :key="key"
-                class="group p-2"
-                :href="item.url"
-                target="_blank"
-            >
+            <a v-for="(item, key) in props.info" :key="key" class="group" :href="item.url" target="_blank">
                 <div
                     class="flex flex-col overflow-hidden rounded shadow-md hover:shadow-lg border border-opacity-70 border-gray-800 group-hover:border-gray-700 transition cursor-pointer"
                 >

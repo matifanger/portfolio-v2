@@ -33,7 +33,7 @@ onMounted(() => {
 
 <template>
     <div class="py-12 mx-auto container">
-        <div class="w-full px-4 mx-auto">
+        <div class="w-full mx-auto">
             <h2
                 id="portfolio"
                 class="tracking-wide uppercase text-black dark:text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
@@ -45,7 +45,7 @@ onMounted(() => {
             </p>
         </div>
 
-        <div class="grid gap-4 p-2 mx-auto md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-4 mx-auto md:grid-cols-2 py-2 lg:grid-cols-3">
             <template v-for="post in props.info">
                 <PortfolioCard :info="post" v-if="post.visible" />
             </template>
