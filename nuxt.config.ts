@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         '@unlighthouse/nuxt',
         'nuxt-headlessui',
         'nuxt-vuefire',
-      ],
+    ],
 
     postcss: {
         plugins: {
@@ -28,50 +28,51 @@ export default defineNuxtConfig({
     },
 
     vuefire: {
-      auth: false,
-      config: JSON.parse(process.env.FIREBASE_CONFIG!)
-      // admin: {
-      //   serviceAccount: 'path/to/credentials.json',
-      // }
+        auth: false,
+        config: JSON.parse(process.env.FIREBASE_CONFIG!),
+        // admin: {
+        //   serviceAccount: 'path/to/credentials.json',
+        // }
     },
 
     // How to install more icons packages -> README.md
     unocss: {
-      uno: false,
-      preflight: false,
-      icons: true,
-      presets: [
-          presetIcons({
-              scale: 1.2,
-              extraProperties: {
-                  display: 'inline-block',
-              },
-          }),
-      ],
+        uno: false,
+        preflight: false,
+        icons: true,
+        presets: [
+            presetIcons({
+                scale: 1.2,
+                extraProperties: {
+                    display: 'inline-block',
+                },
+            }),
+        ],
     },
 
     css: ['@/assets/css/main.pcss', '@/assets/css/tailwind.css'],
 
     vueuse: {
-      ssrHandlers: true,
+        ssrHandlers: true,
     },
 
     sourcemap: {
-      server: true,
-      client: true,
+        server: true,
+        client: true,
     },
 
     colorMode: {
-      classSuffix: '',
-      fallback: 'light',
-      storageKey: 'color-mode',
+        classSuffix: '',
+        preference: 'dark',
+        fallback: 'dark',
+        storageKey: 'basic-color-mode',
     },
 
     vite: {
         build: {
-          sourcemap: true
+            sourcemap: true,
         },
         clearScreen: true,
-        logLevel: 'info'
-    }
+        logLevel: 'info',
+    },
 })

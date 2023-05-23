@@ -12,6 +12,10 @@ useHead({
         },
     ],
 })
+
+definePageMeta({
+    colorMode: 'dark',
+})
 </script>
 
 <template>
