@@ -9,11 +9,11 @@ export default defineNuxtConfig({
         // Module descriptions -> README.md
         '@vueuse/nuxt',
         '@nuxtjs/tailwindcss',
-        '@nuxt/image-edge',
+        // '@nuxt/image-edge',
         '@nuxtjs/color-mode',
         '@pinia/nuxt',
         '@unocss/nuxt',
-        '@unlighthouse/nuxt',
+        // '@unlighthouse/nuxt',
         'nuxt-headlessui',
         'nuxt-vuefire',
     ],
