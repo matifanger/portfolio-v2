@@ -45,7 +45,7 @@ onMounted(() => {
             </p>
         </div>
 
-        <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-4">
             <a v-for="(item, key) in props.info" :key="key" class="group" :href="item.url" target="_blank">
                 <div
                     class="flex flex-col overflow-hidden rounded shadow-md hover:shadow-lg border border-opacity-70 border-gray-800 group-hover:border-gray-700 transition cursor-pointer"
