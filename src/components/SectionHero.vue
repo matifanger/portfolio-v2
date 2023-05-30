@@ -17,9 +17,10 @@
                 <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
                     <span
                         class="bg-gradient-to-r bg-clip-text text-transparent from-[#f9d56e] via-yellow-200 to-[#f9d56e] animate-text"
-                        >A SSR Vue Dev</span
+                        >SSR Vue Dev</span
                     >
-                    that builds things and share the process.
+                    <br />
+                    <!-- <p class="text-2xl opacity-90">(+3 years of experience)</p> -->
                 </main>
             </div>
         </div>
