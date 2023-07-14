@@ -34,7 +34,7 @@
     "@pinia/nuxt": "^0.4.6",
     "@vueuse/nuxt": "^9.12.0",
     "firebase": "^9.17.1",
-    "firebase-admin": "^11.5.0",
+    "firebase-admin": "^11.10.1",
     "nuxt-vuefire": "^0.1.5",
     "vue-gtag-next": "^1.14.0",
     "vuefire": "^3.0.1"
