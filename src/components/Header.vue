@@ -37,14 +37,14 @@
                         <div class="i-mdi:whatsapp text-2xl" />
                     </a>
                     <a
-                        href="https://www.linkedin.com/in/matias-fanger-b8b916197/"
+                        href="https://www.linkedin.com/in/matifanger/"
                         class="flex items-center text-gray-500 hover:text-gray-300 transition"
                         target="_blank"
                     >
                         <div class="i-mdi:linkedin text-2xl" />
                     </a>
                     <a
-                        href="https://www.linkedin.com/in/matias-fanger-b8b916197/"
+                        href="https://www.linkedin.com/in/matifanger/"
                         target="_blank"
                         class="rounded p-1.5 px-3 action-rainbow action-upgrade"
                     >
