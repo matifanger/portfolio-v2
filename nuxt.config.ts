@@ -1,23 +1,11 @@
 import presetIcons from '@unocss/preset-icons'
 import { isProduction } from 'std-env'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     srcDir: 'src',
     ssr: true,
 
-    modules: [
-        // Module descriptions -> README.md
-        '@vueuse/nuxt',
-        '@nuxtjs/tailwindcss',
-        // '@nuxt/image-edge',
-        '@nuxtjs/color-mode',
-        '@pinia/nuxt',
-        '@unocss/nuxt',
-        // '@unlighthouse/nuxt',
-        'nuxt-headlessui',
-        'nuxt-vuefire',
-    ],
+    modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss', '@unocss/nuxt', 'nuxt-vuefire'],
 
     postcss: {
         plugins: {
@@ -41,7 +29,6 @@ export default defineNuxtConfig({
         },
     },
 
-    // How to install more icons packages -> README.md
     unocss: {
         uno: false,
         preflight: false,
@@ -72,13 +59,6 @@ export default defineNuxtConfig({
     sourcemap: {
         server: true,
         client: true,
-    },
-
-    colorMode: {
-        classSuffix: '',
-        preference: 'dark',
-        fallback: 'dark',
-        storageKey: 'basic-color-mode',
     },
 
     vite: {
