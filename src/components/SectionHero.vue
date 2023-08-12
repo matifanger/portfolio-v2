@@ -5,7 +5,7 @@
         class="relative overflow-hidden container flex items-center justify-center py-6 md:py-44 md:pt-44 bg h-screen"
     >
         <div class="mx-auto max-w-4xl text-center">
-            <div class="flex flex-col">
+            <div class="flex flex-col lg:gap-5">
                 <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
                     Hey! I'm
                 </main>
@@ -17,9 +17,9 @@
                 <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
                     <span
                         class="bg-gradient-to-r bg-clip-text text-transparent from-[#f9d56e] via-yellow-200 to-[#f9d56e] animate-text"
-                        >SSR Vue Dev</span
                     >
-                    <br />
+                        Software Engineer
+                    </span>
                     <!-- <p class="text-2xl opacity-90">(+3 years of experience)</p> -->
                 </main>
             </div>

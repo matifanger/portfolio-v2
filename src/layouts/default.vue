@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-full min-h-screen dark:bg-[#10101A] font-Poppins">
+    <div class="relative w-full min-h-screen bg-[#10101A] font-Poppins">
         <Header />
         <slot />
         <Footer />

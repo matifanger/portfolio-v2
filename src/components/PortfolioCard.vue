@@ -1,60 +1,20 @@
-<template>
-    <div
-        class="relative w-full bg-white border border-transparent rounded shadow-md dark:bg-gray-800 overflow-hidden"
-    >
-        <img class="object-cover object-top w-full h-56" :src="info.image" alt="avatar" />
-
-        <div class="flex flex-col gap-2 px-6 py-3 bg-gray-900">
-            <h1
-                class="flex justify-between items-center text-lg font-semibold text-slate-200 w-full uppercase"
-            >
-                {{ info.title }}
-                <div class="flex gap-1">
-                    <a
-                        v-if="info.fullimage"
-                        class="w-fit flex items-center hover:text-[#8F5BF4] transition"
-                        :href="info.fullimage"
-                        target="_blank"
-                    >
-                        <div class="i-mdi:image" />
-                    </a>
-                    <a
-                        v-if="info.url"
-                        class="w-fit flex items-center hover:text-[#8F5BF4] transition"
-                        :href="info.url"
-                        target="_blank"
-                    >
-                        <!-- <IconLinkExternal class="h-5 w-5 hover:text-gray-400 transition" /> -->
-                        <div class="i-mdi:open-in-new" />
-                    </a>
-                </div>
-            </h1>
-            <div class="text-stone-300 text-sm">
-                Project size:
-                <span class="uppercase font-bold" :class="projectSize">
-                    {{ info.size }}
-                </span>
-            </div>
-        </div>
-        <div class="px-6 flex flex-wrap gap-2 items-center mt-4 text-gray-700 dark:text-gray-200">
-            <span
-                v-for="(item, key) in info.tech"
-                :key="key"
-                class="bg-gray-600 text-gray-300 text-sm px-1 whitespace-nowrap"
-            >
-                {{ item }}
-            </span>
-        </div>
-        <div class="px-6 pb-4 bg-[#1F2937]">
-            <p class="text-stone-500 dark:text-stone-300 lg:mx-auto mt-4">
-                {{ info.description }}
-            </p>
-        </div>
-    </div>
-</template>
-
-<script setup>
-const props = defineProps(['info'])
+<script lang="ts" setup>
+const props = defineProps({
+    info: {
+        type: Object as PropType<{
+            title: string
+            description: string
+            url: string
+            image: string
+            tech: string[]
+            size: string
+            fullimage: string
+            type: string
+            github: string
+        }>,
+        required: true,
+    },
+})
 
 const projectSize = computed(() => {
     if (props.info.size === 'small') {
@@ -68,3 +28,70 @@ const projectSize = computed(() => {
     }
 })
 </script>
+
+<template>
+    <div class="relative w-full border border-transparent rounded shadow-md bg-gray-800 overflow-hidden">
+        <img class="object-cover object-top w-full h-56" :src="info.image" alt="avatar" />
+
+        <div class="flex flex-col gap-2 px-6 py-3 bg-gray-900">
+            <h1 class="flex justify-between items-center text-lg font-semibold text-slate-200 w-full">
+                <span class="uppercase">
+                    {{ info.title }}
+                </span>
+                <div class="flex gap-1">
+                    <a
+                        v-if="info.fullimage"
+                        class="w-fit flex items-center hover:text-[#8F5BF4] transition"
+                        :href="info.fullimage"
+                        target="_blank"
+                    >
+                        <div class="i-mdi:image" />
+                    </a>
+                    <a
+                        v-if="info.github"
+                        class="w-fit flex items-center hover:text-[#8F5BF4] transition"
+                        :href="info.github"
+                        target="_blank"
+                    >
+                        <div class="i-mdi:github" />
+                    </a>
+                    <a
+                        v-if="info.url"
+                        class="w-fit flex items-center hover:text-[#8F5BF4] transition gap-1"
+                        :href="info.url"
+                        target="_blank"
+                    >
+                        <div class="i-mdi:open-in-new" />
+                        Live
+                    </a>
+                </div>
+            </h1>
+            <div class="text-stone-300 text-sm">
+                Project size:
+                <span class="uppercase font-bold" :class="projectSize">
+                    {{ info.size }}
+                </span>
+            </div>
+            <div class="text-stone-300 text-sm">
+                Type:
+                <span class="uppercase font-semibold">
+                    {{ info.type }}
+                </span>
+            </div>
+        </div>
+        <div class="px-6 flex flex-wrap gap-2 items-center mt-4 text-gray-200">
+            <span
+                v-for="(item, key) in info.tech"
+                :key="key"
+                class="bg-gray-600 text-gray-300 text-sm px-1 whitespace-nowrap"
+            >
+                {{ item }}
+            </span>
+        </div>
+        <div class="px-6 pb-4 bg-[#1F2937]">
+            <p class="text-stone-300 lg:mx-auto mt-4">
+                {{ info.description }}
+            </p>
+        </div>
+    </div>
+</template>

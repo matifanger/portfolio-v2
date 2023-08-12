@@ -31,34 +31,27 @@ onMounted(() => {
 
 <template>
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="py-12 bg-white dark:bg-[#050810]">
+    <div class="py-12 bg-[#050810]">
         <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-lg font-semibold text-cyan-600">Work with me</h2>
                 <p
-                    class="mt-3 text-3xl font-bold leading-[50px] lg:leading-5 tracking-tight text-stone-900 dark:text-stone-300 sm:text-4xl"
+                    class="mt-3 text-3xl font-bold leading-[50px] lg:leading-5 tracking-tight text-stone-300 sm:text-4xl"
                 >
                     A <span id="betterway">better way</span> to start your project 🤙
                 </p>
-                <div class="max-w-2xl mt-4 lg:mt-7 text-xl text-stone-500 dark:text-stone-300 lg:mx-auto">
+                <div class="max-w-2xl mt-6 lg:mt-10 text-xl text-stone-300 lg:mx-auto">
                     Thanks for stopping by, I’m currently
                     <span class="text-white">looking to join</span> a new team of developers. If you think we
                     might be a good fit for one another, text me on
                     <a
                         href="https://wa.link/aq1xfn"
-                        class="text-green-500 hover:text-green-900 dark:hover:text-green-300 underline underline-offset-4"
+                        class="text-green-500 hover:text-green-300 underline underline-offset-4"
                         target="_blank"
                         >WhatsApp</a
                     >.
                 </div>
             </div>
-
-            <!-- <div class="max-w-2xl mx-auto mt-10">
-        <form class="relative grid grid-cols-2 gap-6 px-5 py-6 sm:gap-8 sm:p-8">
-          <input type="email" />
-          <button class="bg-red-500">Confirm</button>
-        </form>
-      </div> -->
         </div>
     </div>
 </template>

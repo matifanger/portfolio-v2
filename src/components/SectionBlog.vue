@@ -36,12 +36,12 @@ onMounted(() => {
         <div class="w-full mx-auto">
             <h2
                 id="portfolio"
-                class="tracking-wide uppercase text-black dark:text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
+                class="tracking-wide uppercase text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
             >
                 Portfolio
             </h2>
-            <p class="mt-6 lg:mt-10 mb-6 text-xl text-gray-500">
-                If you want to see the projects I've worked for clients, you can check out these.
+            <p class="mt-6 mb-6 text-xl text-gray-500">
+                Some of the best projects that I have made for clients.
             </p>
         </div>
 
