@@ -15,8 +15,8 @@ const sortedJobs = computed(() => {
 })
 
 useHead({
-    title: 'Matias Fanger - Software Engineer',
-    meta: [{ name: 'description', content: 'Matias Fanger - Software Engineer - Portfolio' }],
+    title: 'Matias Fanger - Full Stack Developer',
+    meta: [{ name: 'description', content: 'Matias Fanger - Full Stack Developer - Portfolio' }],
     link: [
         {
             rel: 'icon',

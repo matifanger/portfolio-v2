@@ -18,7 +18,7 @@
                     <span
                         class="bg-gradient-to-r bg-clip-text text-transparent from-[#f9d56e] via-yellow-200 to-[#f9d56e] animate-text"
                     >
-                        Software Engineer
+                        Full Stack Developer
                     </span>
                     <!-- <p class="text-2xl opacity-90">(+3 years of experience)</p> -->
                 </main>
