@@ -55,13 +55,13 @@ onMounted(() => {
                 id="saas"
                 class="tracking-wide uppercase text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
             >
-                Products
+                SaaS
             </h2>
-            <p class="mt-6 mb-6 text-xl text-gray-500">Products I've built or i'm building.</p>
+            <p class="mt-6 mb-6 text-xl text-gray-500">SaaS I've built or i'm building.</p>
         </div>
 
         <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <template v-for="(item, key) in info">
+            <template v-for="(item, key) in props.info">
                 <a v-if="item.visible" :key="key" class="group" :href="item.url" target="_blank">
                     <div
                         class="flex flex-col h-full overflow-hidden rounded shadow-md hover:shadow-lg border border-opacity-70 border-gray-800 group-hover:border-gray-700 transition cursor-pointer"
@@ -107,9 +107,10 @@ onMounted(() => {
                         >
                             <div class="flex gap-2 flex-wrap">
                                 <span
-                                    v-for="(tag, sk) in item.tech"
+                                    v-for="(tag, sk) in sortByImportance(item.tech)"
                                     :key="sk"
-                                    class="font-sans text-xs font-mediumborder p-1 bg-gray-700 bg-opacity-20 text-gray-50 text-opacity-60 font-medium uppercase md:text-sm"
+                                    class="font-sans text-xs p-1 bg-gray-700 bg-opacity-20 text-opacity-80 font-medium uppercase md:text-sm"
+                                    :class="colorDict[tag.toLowerCase() as keyof typeof colorDict]"
                                     >{{ tag }}
                                 </span>
                             </div>
