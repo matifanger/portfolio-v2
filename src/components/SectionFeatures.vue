@@ -49,6 +49,12 @@ onMounted(() => {
                         class="text-green-500 hover:text-green-300 underline underline-offset-4"
                         target="_blank"
                         >WhatsApp</a
+                    > or 
+                    <a
+                        href="https://www.linkedin.com/in/matifanger/"
+                        class="text-blue-500 hover:text-blue-300 underline underline-offset-4"
+                        target="_blank"
+                        >LinkedIn</a
                     >.
                 </div>
             </div>

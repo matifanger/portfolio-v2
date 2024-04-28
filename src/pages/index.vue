@@ -30,8 +30,8 @@ useHead({
 <template>
     <div>
         <SectionHero />
+        <SectionProjects v-if="sortedJobs.length" :info="sortedJobs" />
         <SectionSaas v-if="saas.length" :info="saas" />
-        <SectionBlog v-if="sortedJobs.length" :info="sortedJobs" />
         <SectionExtra v-if="extra.length" :info="extra" />
         <SectionFeatures />
     </div>
