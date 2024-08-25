@@ -31,7 +31,7 @@ const projectSize = computed(() => {
 
 <template>
     <div class="relative w-full border border-transparent rounded shadow-md bg-gray-800 overflow-hidden">
-        <NuxtLink :to="info.url" class="overflow-hidden">
+        <NuxtLink :to="info.url" class="overflow-hidden" target="_blank">
             <div class="w-full h-56 overflow-hidden">
                 <img
                     :class="info.url ? 'hover:scale-105 transition' : ''"
@@ -44,7 +44,7 @@ const projectSize = computed(() => {
 
         <div class="flex flex-col gap-2 px-6 py-3 bg-gray-900">
             <div class="flex justify-between items-center text-lg font-semibold text-slate-200 w-full">
-                <NuxtLink :to="info.url" :class="info.url ? 'hover:underline underline-offset-4' : ''">
+                <NuxtLink :to="info.url" :class="info.url ? 'hover:underline underline-offset-4' : ''" target="_blank">
                     <h2 class="uppercase">
                         {{ info.title }}
                     </h2>
