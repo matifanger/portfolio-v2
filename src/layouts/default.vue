@@ -6,6 +6,37 @@
     </div>
 </template>
 
+<script setup>
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const messages = [
+        {
+            text: '%c👋 Welcome!',
+            style: `
+                font-size: 24px;
+                font-weight: bold;
+                color: #F9D56E;
+                background: linear-gradient(to right, #10101A, #28283A);
+                padding: 8px 16px;
+                border-radius: 4px;
+            `
+        },
+        {
+            text: '%c🎨 Ping me on Twitter! https://x.com/matifanger',
+        },
+        {
+            text: '%c⚡ Mail me @ matifanger@outlook.com',
+        },
+        {
+            text: '%c Thanks for stopping by!',
+        },
+    ];
+    
+    messages.forEach(msg => console.log(msg.text, msg.style));
+});
+</script>
+
 <style lang="postcss">
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
