@@ -47,7 +47,7 @@ onMounted(() => {
 
     <div class="grid gap-4 mx-auto md:grid-cols-2 py-2 lg:grid-cols-3">
       <template v-for="post in props.info">
-        <PortfolioCard v-if="post.visible" :info="post" />
+        <PortfolioCard v-if="post.visible" :key="post.title" :info="post" />
       </template>
     </div>
   </div>

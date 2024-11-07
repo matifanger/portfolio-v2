@@ -5,9 +5,34 @@ import { useSortedCollection } from '~/composables/useSortedCollection'
 
 const db = useFirestore()
 
-const jobs = useCollection(collection(db, 'jobs'))
-const saas = useCollection(collection(db, 'saas'))
-const extra = useCollection(collection(db, 'extra'))
+interface BaseProjectItem {
+  title: string
+  description: string
+  url: string
+  image: string
+  visible: boolean
+  tech: string[]
+  position: number
+}
+
+interface JobProject extends BaseProjectItem {}
+
+interface SaasProject extends BaseProjectItem {
+  mmr: string
+  device: string
+  showmmr: boolean
+}
+
+interface ExtraProject extends BaseProjectItem {
+  size: string
+  fullimage: string
+  type: string
+  github: string
+}
+
+const jobs = useCollection<JobProject>(collection(db, 'jobs'))
+const saas = useCollection<SaasProject>(collection(db, 'saas'))
+const extra = useCollection<ExtraProject>(collection(db, 'extra'))
 
 const sortedJobs = useSortedCollection(jobs)
 const sortedSaas = useSortedCollection(saas)

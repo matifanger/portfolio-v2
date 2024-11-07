@@ -3,19 +3,18 @@ import { annotate } from 'rough-notation'
 
 const props = defineProps({
   info: {
-    type: Array as PropType<
-      {
-        title: string
-        description: string
-        url: string
-        image: string
-        mmr: string
-        device: string
-        tech: string[]
-        visible: boolean
-        showmmr: boolean
-      }[]
-    >,
+    type: Array as PropType<{
+      title: string
+      description: string
+      url: string
+      image: string
+      tech: string[]
+      visible: boolean
+      size: string
+      fullimage: string
+      type: string
+      github: string
+    }[]>,
     required: true,
   },
 })

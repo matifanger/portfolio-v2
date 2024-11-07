@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import colorDict from '@/composables/colorDict'
+import sortByImportance from '@/composables/sortByImportance'
 import { annotate } from 'rough-notation'
 
 const props = defineProps({

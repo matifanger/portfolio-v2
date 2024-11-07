@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import colorDict from '@/composables/colorDict'
+import sortByImportance from '@/composables/sortByImportance'
+
 const props = defineProps({
   info: {
     type: Object as PropType<{

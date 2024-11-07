@@ -1,18 +1,7 @@
 import type { Ref } from 'vue'
 
-interface ProjectItem {
-  title: string
-  description: string
-  url: string
-  image: string
-  tech: string[]
-  visible: boolean
-  position: number
-  [key: string]: any
-}
-
-export function useSortedCollection(collection: Ref<ProjectItem[]>) {
-  const sorted = ref<ProjectItem[]>([])
+export function useSortedCollection<T extends { position: number }>(collection: Ref<T[]>) {
+  const sorted = ref<T[]>([])
 
   watch(collection, (items) => {
     sorted.value = [...items].sort((a, b) => {

@@ -1,4 +1,4 @@
-export default function sortByImportance(items: string[]) {
+export default function (items: string[]) {
   // Vue 2, Vue 3, Nuxt 2, Nuxt 3, React, React Native, Pinia, TypeScript, Tailwind CSS, Nest.js, PostgreSQL, Python, Vuex, Firebase, Vuetify, GPT-4, Stable Difussion, OpenAI
   // sort by importance
   const sortByImportance = [
