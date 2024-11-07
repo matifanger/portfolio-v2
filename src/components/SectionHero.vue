@@ -1,33 +1,33 @@
 <script lang="ts" setup></script>
 
 <template>
-    <div
-        class="relative overflow-hidden container flex items-center justify-center py-6 md:py-44 md:pt-44 bg h-screen"
-    >
-        <div class="mx-auto max-w-4xl text-center">
-            <div class="flex flex-col lg:gap-5">
-                <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
-                    Hey! I'm
-                </main>
-                <span
-                    class="text-4xl md:text-7xl leading-[50px] md:leading-[100px] font-semibold bg-gradient-to-r bg-clip-text text-transparent from-indigo-500 via-purple-500 to-indigo-500 animate-text"
-                >
-                    Matias Fanger
-                </span>
-                <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
-                    <span
-                        class="bg-gradient-to-r bg-clip-text text-transparent from-[#f9d56e] via-yellow-200 to-[#f9d56e] animate-text"
-                    >
-                        Full Stack Developer
-                    </span>
-                    <!-- <p class="text-2xl opacity-90">(+3 years of experience)</p> -->
-                </main>
-            </div>
-        </div>
-        <div class="absolute bottom-16 text-white text-5xl motion-safe:animate-bounce">
-            <div class="i-mdi:arrow-down-bold" />
-        </div>
+  <div
+    class="relative overflow-hidden container flex items-center justify-center py-6 md:py-44 md:pt-44 bg h-screen"
+  >
+    <div class="mx-auto max-w-4xl text-center">
+      <div class="flex flex-col lg:gap-5">
+        <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
+          Hey! I'm
+        </main>
+        <span
+          class="text-4xl md:text-7xl leading-[50px] md:leading-[100px] font-semibold bg-gradient-to-r bg-clip-text text-transparent from-indigo-500 via-purple-500 to-indigo-500 animate-text"
+        >
+          Matias Fanger
+        </span>
+        <main class="text-white text-3xl md:text-6xl font-bold leading-[45px] md:leading-[70px]">
+          <span
+            class="bg-gradient-to-r bg-clip-text text-transparent from-[#f9d56e] via-yellow-200 to-[#f9d56e] animate-text"
+          >
+            Full Stack Developer
+          </span>
+          <!-- <p class="text-2xl opacity-90">(+3 years of experience)</p> -->
+        </main>
+      </div>
     </div>
+    <div class="absolute bottom-16 text-white text-5xl motion-safe:animate-bounce">
+      <div class="i-mdi:arrow-down-bold" />
+    </div>
+  </div>
 </template>
 
 <style lang="postcss">

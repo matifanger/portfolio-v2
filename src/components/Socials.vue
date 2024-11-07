@@ -1,36 +1,35 @@
 <template>
-        <div class="flex flex-wrap items-center space-x-2 justify-center">
-            <a
-                        href="https://github.com/matifanger"
-                        class="flex items-center text-gray-500 hover:text-gray-300 transition"
-                        target="_blank"
-                    >
-                        <div class="i-mdi:github text-2xl" />
-                    </a>
-                    <a
-                        href="https://wa.link/aq1xfn"
-                        class="flex items-center text-gray-500 hover:text-gray-300 transition"
-                        target="_blank"
-                    >
-                        <div class="i-mdi:whatsapp text-2xl" />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/matifanger/"
-                        class="flex items-center text-gray-500 hover:text-gray-300 transition"
-                        target="_blank"
-                    >
-                        <div class="i-mdi:linkedin text-2xl" />
-                    </a>
-                    <a 
-                        href="https://drive.google.com/file/d/1WZu2fn43uEayDoXmoBzWma18ZJIi_b7v/view?usp=sharing"
-                        target="_blank"
-                        class="rounded p-1.5 px-3 action-rainbow action-upgrade"
-                    >
-                        Resume
-                    </a>
-        </div>
+  <div class="flex flex-wrap items-center space-x-2 justify-center">
+    <a
+      href="https://github.com/matifanger"
+      class="flex items-center text-gray-500 hover:text-gray-300 transition"
+      target="_blank"
+    >
+      <div class="i-mdi:github text-2xl" />
+    </a>
+    <a
+      href="https://wa.link/aq1xfn"
+      class="flex items-center text-gray-500 hover:text-gray-300 transition"
+      target="_blank"
+    >
+      <div class="i-mdi:whatsapp text-2xl" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/matifanger/"
+      class="flex items-center text-gray-500 hover:text-gray-300 transition"
+      target="_blank"
+    >
+      <div class="i-mdi:linkedin text-2xl" />
+    </a>
+    <a
+      href="https://drive.google.com/file/d/1WZu2fn43uEayDoXmoBzWma18ZJIi_b7v/view?usp=sharing"
+      target="_blank"
+      class="rounded p-1.5 px-3 action-rainbow action-upgrade"
+    >
+      Resume
+    </a>
+  </div>
 </template>
-
 
 <style lang="postcss" scoped>
 .action-rainbow {
