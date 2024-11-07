@@ -29,6 +29,34 @@ const projectSize = computed(() => {
   else if (props.info.size === 'huge') {
     return 'text-red-500'
   }
+
+  return 'text-white'
+})
+
+const imageNotAvailable = ref(false)
+function setDefaultImage() {
+  console.log('setDefaultImage', props.info.title)
+  imageNotAvailable.value = true
+}
+
+const bgColors = [
+  'bg-gradient-to-br from-purple-600 to-blue-500',
+  'bg-gradient-to-br from-pink-500 to-orange-400',
+  'bg-gradient-to-br from-green-500 to-teal-400',
+  'bg-gradient-to-br from-indigo-500 to-purple-500',
+]
+
+onMounted(() => {
+  const img = new Image()
+  img.src = props.info.image
+  img.onerror = () => {
+    imageNotAvailable.value = true
+  }
+})
+
+const randomBg = computed(() => {
+  const hash = props.info.title.split('').reduce((acc, char) => char.charCodeAt(0) + acc, 0)
+  return bgColors[hash % bgColors.length]
 })
 </script>
 
@@ -36,11 +64,24 @@ const projectSize = computed(() => {
   <div class="relative w-full border border-transparent rounded shadow-md bg-gray-800 overflow-hidden">
     <NuxtLink :to="info.url" class="overflow-hidden" target="_blank">
       <div class="w-full h-56 overflow-hidden">
+        <template v-if="imageNotAvailable">
+          <div
+            :class="[info.url ? 'hover:scale-105 transition' : '', randomBg]"
+            class="w-full h-full flex items-center justify-center p-4"
+          >
+            <h3 class="text-2xl font-bold text-white text-center break-words">
+              {{ info.title }}
+            </h3>
+          </div>
+        </template>
         <img
+          v-else
           :class="info.url ? 'hover:scale-105 transition' : ''"
-          class="object-cover object-top w-full h-56 overflow-hidden"
+          class="object-cover object-top w-full h-56"
           :src="info.image"
-          alt="avatar"
+          :alt="info.title"
+          @error="setDefaultImage"
+          @load="imageNotAvailable = false"
         >
       </div>
     </NuxtLink>
@@ -87,12 +128,6 @@ const projectSize = computed(() => {
           {{ info.size }}
         </span>
       </div>
-      <!-- <div class="text-stone-300 text-sm">
-                Type:
-                <span class="uppercase font-semibold">
-                    {{ info.type }}
-                </span>
-            </div> -->
     </div>
     <div class="px-6 flex flex-wrap gap-2 items-center mt-4 text-gray-200">
       <span
