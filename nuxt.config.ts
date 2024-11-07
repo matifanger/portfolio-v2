@@ -2,9 +2,11 @@ import presetIcons from '@unocss/preset-icons'
 import { isProduction } from 'std-env'
 
 export default defineNuxtConfig({
+  devtools: { enabled: true },
   srcDir: 'src',
-  ssr: true,
+
   modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss', '@unocss/nuxt', 'nuxt-vuefire'],
+  css: ['@/assets/css/main.pcss', '@/assets/css/tailwind.css'],
 
   postcss: {
     plugins: {
@@ -47,25 +49,6 @@ export default defineNuxtConfig({
       google_analytics_id: process.env.FIREBASE_MEASUREMENT_ID,
       production_mode: isProduction,
     },
-  },
-
-  css: ['@/assets/css/main.pcss', '@/assets/css/tailwind.css'],
-
-  vueuse: {
-    ssrHandlers: true,
-  },
-
-  sourcemap: {
-    server: true,
-    client: true,
-  },
-
-  vite: {
-    build: {
-      sourcemap: true,
-    },
-    clearScreen: true,
-    logLevel: 'info',
   },
 
   compatibilityDate: '2024-11-06',
