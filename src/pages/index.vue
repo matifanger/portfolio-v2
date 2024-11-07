@@ -2,33 +2,9 @@
 import { collection } from 'firebase/firestore'
 import { useCollection } from 'vuefire'
 import { useSortedCollection } from '~/composables/useSortedCollection'
+import type { ExtraProject, JobProject, SaasProject } from '~/types/portfolio'
 
 const db = useFirestore()
-
-interface BaseProjectItem {
-  title: string
-  description: string
-  url: string
-  image: string
-  visible: boolean
-  tech: string[]
-  position: number
-}
-
-interface JobProject extends BaseProjectItem {}
-
-interface SaasProject extends BaseProjectItem {
-  mmr: string
-  device: string
-  showmmr: boolean
-}
-
-interface ExtraProject extends BaseProjectItem {
-  size: string
-  fullimage: string
-  type: string
-  github: string
-}
 
 const jobs = useCollection<JobProject>(collection(db, 'jobs'))
 const saas = useCollection<SaasProject>(collection(db, 'saas'))
