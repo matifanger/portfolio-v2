@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@firebase/app-types": "^0.9.2",
+    "@firebase/app-types": "^0.9.3",
     "@vue/devtools-api": "^7.6.4",
     "@vueuse/nuxt": "^11.2.0",
     "firebase": "^11.0.1",
