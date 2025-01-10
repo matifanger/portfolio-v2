@@ -23,7 +23,7 @@
     "vuefire": "^3.2.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.9.1",
+    "@antfu/eslint-config": "^3.13.0",
     "@iconify-json/mdi": "^1.2.1",
     "@nuxt/kit": "^3.14.159",
     "@nuxtjs/tailwindcss": "^6.12.2",
