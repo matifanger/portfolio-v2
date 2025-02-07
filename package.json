@@ -14,7 +14,7 @@
     "@firebase/app-types": "^0.9.3",
     "@vue/devtools-api": "^7.6.4",
     "@vueuse/nuxt": "^11.2.0",
-    "firebase": "^11.0.1",
+    "firebase": "^11.3.0",
     "firebase-admin": "^13.0.0",
     "nuxt-vuefire": "^1.0.4",
     "vue": "^3.5.12",
