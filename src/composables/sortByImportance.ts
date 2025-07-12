@@ -6,6 +6,8 @@ export default function (items: string[]) {
     'vue 3',
     'nuxt 2',
     'nuxt 3',
+    'nuxthub',
+    'nuxt ui',
     'react',
     'react native',
     'vuex',
@@ -17,9 +19,17 @@ export default function (items: string[]) {
     'python',
     'firebase',
     'vuetify',
+    'drizzle',
+    'eslint',
     'gpt-4',
     'stable difussion',
     'openai',
+    'anthropic',
+    'cloudflare',
+    'polar',
+    'desktop',
+    'electron',
+    'shadcn',
   ]
 
   const sortedItems = items.sort((a, b) => {

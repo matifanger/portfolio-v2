@@ -14,6 +14,8 @@ const props = defineProps({
       fullimage: string
       type: string
       github: string
+      zoom?: number
+      offset?: { x: number; y: number }
     }>,
     required: true,
   },
@@ -61,6 +63,28 @@ const randomBg = computed(() => {
   const hash = props.info.title.split('').reduce((acc, char) => char.charCodeAt(0) + acc, 0)
   return bgColors[hash % bgColors.length]
 })
+
+const getImageStyles = () => {
+  const zoom = props.info.zoom || 1
+  const offsetX = props.info.offset?.x || 0
+  const offsetY = props.info.offset?.y || 0
+  
+  let styles = 'object-fit: cover; width: 100%; height: 100%;'
+  
+  // Usar object-position para el offset
+  if (offsetX !== 0 || offsetY !== 0) {
+    const posX = 50 + (offsetX / 3) // Ajustar sensibilidad
+    const posY = 50 + (offsetY / 3) // Ajustar sensibilidad
+    styles += `object-position: ${posX}% ${posY}%;`
+  }
+  
+  // Usar transform para el zoom
+  if (zoom !== 1) {
+    styles += `transform: scale(${zoom}); transform-origin: center center;`
+  }
+  
+  return styles
+}
 </script>
 
 <template>
@@ -79,10 +103,11 @@ const randomBg = computed(() => {
         </template>
         <img
           v-else
-          :class="info.url ? 'hover:scale-105 transition' : ''"
-          class="object-cover object-top w-full h-56"
+          class="object-cover w-full h-56"
+          :class="(info.zoom || info.offset) ? '' : (info.url ? 'hover:scale-105 transition' : '')"
           :src="info.image"
           :alt="info.title"
+          :style="getImageStyles()"
           @error="setDefaultImage"
           @load="imageNotAvailable = false"
         >

@@ -1,7 +1,25 @@
 <script lang="ts" setup>
 import { annotate } from 'rough-notation'
 
-const props = defineProps(['info'])
+const props = defineProps({
+  info: {
+    type: Array as PropType<{
+      title: string
+      description: string
+      url: string
+      image: string
+      tech: string[]
+      visible: boolean
+      size: string
+      fullimage: string
+      type: string
+      github: string
+      zoom?: number
+      offset?: { x: number; y: number }
+    }[]>,
+    required: true,
+  },
+})
 
 onMounted(() => {
   if (process.client) {

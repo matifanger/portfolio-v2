@@ -14,6 +14,8 @@ const props = defineProps({
       fullimage: string
       type: string
       github: string
+      zoom?: number
+      offset?: { x: number; y: number }
     }[]>,
     required: true,
   },
