@@ -22,7 +22,7 @@
       <div class="i-mdi:linkedin text-2xl" />
     </a>
     <a
-      href="https://drive.google.com/file/d/1MF3fUVfpDqgDp9rY6f_qsgdTPOtpzvcR/view?usp=sharing"
+      href="https://drive.google.com/file/d/1VqRPGmfWnqOonSkiGyOAPbwx3B8Rk9Qb/view?usp=drive_link"
       target="_blank"
       class="rounded p-1.5 px-3 action-rainbow action-upgrade"
     >
