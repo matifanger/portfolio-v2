@@ -28,4 +28,10 @@ export default {
   'desktop': 'text-gray-400',
   'electron': 'text-cyan-500',
   'shadcn': 'text-slate-400',
+  'shadcn/ui': 'text-slate-300',
+  'airtable': 'text-purple-400',
+  'supabase': 'text-emerald-400',
+  'strapi': 'text-indigo-400',
+  'n8n': 'text-red-400',
+  'svelte': 'text-orange-500',
 }

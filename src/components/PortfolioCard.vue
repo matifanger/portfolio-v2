@@ -14,163 +14,160 @@ const props = defineProps({
       fullimage: string
       type: string
       github: string
-      zoom?: number
-      offset?: { x: number; y: number }
     }>,
     required: true,
   },
-})
-
-const projectSize = computed(() => {
-  if (props.info.size === 'small') {
-    return 'text-green-500'
-  }
-  else if (props.info.size === 'medium') {
-    return 'text-yellow-500'
-  }
-  else if (props.info.size === 'big') {
-    return 'text-orange-500'
-  }
-  else if (props.info.size === 'huge') {
-    return 'text-red-500'
-  }
-
-  return 'text-white'
+  index: {
+    type: Number,
+    default: 0,
+  },
 })
 
 const imageNotAvailable = ref(false)
-function setDefaultImage() {
-  console.log('setDefaultImage', props.info.title)
-  imageNotAvailable.value = true
-}
+const isEven = computed(() => props.index % 2 === 0)
+const indexLabel = computed(() => String(props.index + 1).padStart(2, '0'))
 
-const bgColors = [
-  'bg-gradient-to-br from-purple-600 to-blue-500',
-  'bg-gradient-to-br from-pink-500 to-orange-400',
-  'bg-gradient-to-br from-green-500 to-teal-400',
-  'bg-gradient-to-br from-indigo-500 to-purple-500',
+const bgGradients = [
+  'from-purple-900/60 to-blue-900/40',
+  'from-orange-900/60 to-red-900/40',
+  'from-green-900/60 to-teal-900/40',
+  'from-indigo-900/60 to-purple-900/40',
+  'from-rose-900/60 to-pink-900/40',
 ]
+const randomBg = computed(() => {
+  const hash = props.info.title.split('').reduce((acc, c) => c.charCodeAt(0) + acc, 0)
+  return bgGradients[hash % bgGradients.length]
+})
+
+const sizeTooltip: Record<string, string> = {
+  small: 'Small · up to 10 pages',
+  medium: 'Medium complexity · client site',
+  big: 'Large production app',
+  huge: 'Enterprise-scale system',
+}
+const sizeLabel: Record<string, string> = {
+  small: 'Small',
+  medium: 'Medium',
+  big: 'Big',
+  huge: 'Huge',
+}
+const sizeColor: Record<string, string> = {
+  small: 'text-green-400 border-green-400/25',
+  medium: 'text-yellow-400 border-yellow-400/25',
+  big: 'text-orange-400 border-orange-400/25',
+  huge: 'text-red-400 border-red-400/25',
+}
+const sizeClass = computed(() => sizeColor[props.info.size] || 'text-white/40 border-white/10')
 
 onMounted(() => {
   const img = new Image()
   img.src = props.info.image
-  img.onerror = () => {
-    imageNotAvailable.value = true
-  }
+  img.onerror = () => { imageNotAvailable.value = true }
 })
-
-const randomBg = computed(() => {
-  const hash = props.info.title.split('').reduce((acc, char) => char.charCodeAt(0) + acc, 0)
-  return bgColors[hash % bgColors.length]
-})
-
-const getImageStyles = () => {
-  const zoom = props.info.zoom || 1
-  const offsetX = props.info.offset?.x || 0
-  const offsetY = props.info.offset?.y || 0
-  
-  let styles = 'object-fit: cover; width: 100%; height: 100%;'
-  
-  // Usar object-position para el offset
-  if (offsetX !== 0 || offsetY !== 0) {
-    const posX = 50 + (offsetX / 3) // Ajustar sensibilidad
-    const posY = 50 + (offsetY / 3) // Ajustar sensibilidad
-    styles += `object-position: ${posX}% ${posY}%;`
-  }
-  
-  // Usar transform para el zoom
-  if (zoom !== 1) {
-    styles += `transform: scale(${zoom}); transform-origin: center center;`
-  }
-  
-  return styles
-}
 </script>
 
 <template>
-  <div class="relative w-full border border-transparent rounded shadow-md bg-gray-800 overflow-hidden">
-    <NuxtLink :to="info.url" class="overflow-hidden" target="_blank">
-      <div class="w-full h-56 overflow-hidden">
-        <template v-if="imageNotAvailable">
-          <div
-            :class="[info.url ? 'hover:scale-105 transition' : '', randomBg]"
-            class="w-full h-full flex items-center justify-center p-4"
-          >
-            <h3 class="text-2xl font-bold text-white text-center break-words">
-              {{ info.title }}
-            </h3>
-          </div>
-        </template>
-        <img
-          v-else
-          class="object-cover w-full h-56"
-          :class="(info.zoom || info.offset) ? '' : (info.url ? 'hover:scale-105 transition' : '')"
-          :src="info.image"
-          :alt="info.title"
-          :style="getImageStyles()"
-          @error="setDefaultImage"
-          @load="imageNotAvailable = false"
-        >
-      </div>
-    </NuxtLink>
+  <article
+    class="flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#1C1B1B] lg:min-h-[380px]"
+    :class="isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'"
+  >
 
-    <div class="flex flex-col gap-2 px-6 py-3 bg-gray-900">
-      <div class="flex justify-between items-center text-lg font-semibold text-slate-200 w-full">
-        <NuxtLink :to="info.url" :class="info.url ? 'hover:underline underline-offset-4' : ''" target="_blank">
-          <h2 class="uppercase">
+    <!-- ── IMAGE SIDE (55%) ── -->
+    <div class="relative h-64 lg:h-auto lg:w-[55%] flex-shrink-0 overflow-hidden bg-[#232222]">
+
+      <!-- Fallback gradient placeholder -->
+      <template v-if="imageNotAvailable">
+        <div :class="['absolute inset-0 flex items-center justify-center bg-gradient-to-br p-10', randomBg]">
+          <h3 class="text-2xl font-bold text-white text-center leading-tight">
             {{ info.title }}
-          </h2>
-        </NuxtLink>
-
-        <div class="flex gap-1">
-          <a
-            v-if="info.fullimage"
-            class="w-fit flex items-center hover:text-[#8F5BF4] transition"
-            :href="info.fullimage"
-            target="_blank"
-          >
-            <div class="i-mdi:image" />
-          </a>
-          <a
-            v-if="info.github"
-            class="w-fit flex items-center hover:text-[#8F5BF4] transition"
-            :href="info.github"
-            target="_blank"
-          >
-            <div class="i-mdi:github" />
-          </a>
-          <a
-            v-if="info.url"
-            class="w-fit flex items-center hover:text-[#8F5BF4] transition gap-1"
-            :href="info.url"
-            target="_blank"
-          >
-            <div class="i-mdi:open-in-new" />
-            Live
-          </a>
+          </h3>
         </div>
-      </div>
-      <div class="text-stone-300 text-sm">
-        Project size:
-        <span class="uppercase font-bold" :class="projectSize">
-          {{ info.size }}
-        </span>
-      </div>
-    </div>
-    <div class="px-6 flex flex-wrap gap-2 items-center mt-4 text-gray-200">
-      <span
-        v-for="(item, key) in sortByImportance(info.tech)"
-        :key="key"
-        class="bg-gray-700 bg-opacity-70 rounded text-sm px-1 whitespace-nowrap"
-        :class="colorDict[item.toLowerCase() as keyof typeof colorDict]"
+      </template>
+
+      <!-- Actual image -->
+      <img
+        v-else
+        class="absolute inset-0 w-full h-full object-cover object-top"
+        :src="info.image"
+        :alt="info.title"
+        @error="imageNotAvailable = true"
       >
-        {{ item }}
-      </span>
+
     </div>
-    <div class="px-6 pb-4 bg-[#1F2937]">
-      <p class="text-stone-300 lg:mx-auto mt-4">
+
+    <!-- ── CONTENT SIDE (45%) ── -->
+    <div class="flex flex-col flex-1 p-6 lg:p-9 lg:w-[45%]">
+
+      <!-- Index + type label -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="font-mono text-xs text-[#FF5E1F]/60 tabular-nums">{{ indexLabel }}</span>
+        <span v-if="info.type" class="font-mono text-[10px] text-[#888888] uppercase tracking-widest border border-white/[0.07] px-2 py-0.5 rounded-full">{{ info.type }}</span>
+      </div>
+
+      <!-- Title -->
+      <h3 class="text-xl lg:text-2xl font-bold text-white leading-snug mb-3">
+        {{ info.title }}
+      </h3>
+
+      <!-- Description -->
+      <p class="text-[#C2C2C2] text-sm lg:text-base leading-relaxed flex-1 mb-6">
         {{ info.description }}
       </p>
+
+      <!-- Project size -->
+      <div v-if="info.size" class="flex items-center gap-2 mb-4">
+        <span class="text-xs font-mono text-[#888888]">Project size</span>
+        <span
+          class="text-xs font-mono border px-2 py-0.5 rounded cursor-default"
+          :class="sizeClass"
+          :data-tooltip="sizeTooltip[info.size] || info.size"
+        >{{ sizeLabel[info.size] || info.size }}</span>
+      </div>
+
+      <!-- Tech tags -->
+      <div v-if="info.tech?.length" class="flex flex-wrap gap-1.5 mb-7">
+        <span
+          v-for="(item, key) in sortByImportance(info.tech)"
+          :key="key"
+          class="font-mono text-xs px-2 py-0.5 bg-white/[0.05] border border-white/[0.09] rounded-md uppercase tracking-wide"
+          :class="colorDict[item.toLowerCase() as keyof typeof colorDict]"
+        >{{ item }}</span>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex gap-2.5 flex-wrap mt-auto">
+        <a
+          v-if="info.url"
+          :href="info.url"
+          target="_blank"
+          class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#FF5E1F] text-white text-sm font-semibold rounded-lg hover:bg-[#FF7A45] transition-colors"
+          data-tooltip="Visit website"
+        >
+          Visit site
+          <div class="i-mdi:open-in-new text-sm" />
+        </a>
+        <a
+          v-if="info.github"
+          :href="info.github"
+          target="_blank"
+          class="inline-flex items-center gap-1.5 px-4 py-2 border border-white/10 text-[#C2C2C2] text-sm font-semibold rounded-lg hover:border-white/20 hover:bg-white/[0.04] transition-colors"
+          data-tooltip="View source code"
+        >
+          <div class="i-mdi:github text-base" />
+          GitHub
+        </a>
+        <a
+          v-if="info.fullimage"
+          :href="info.fullimage"
+          target="_blank"
+          class="inline-flex items-center gap-1.5 px-4 py-2 border border-white/10 text-[#C2C2C2] text-sm font-semibold rounded-lg hover:border-white/20 hover:bg-white/[0.04] transition-colors"
+          data-tooltip="Full screenshot preview"
+        >
+          <div class="i-mdi:image-outline text-base" />
+          Preview
+        </a>
+      </div>
     </div>
-  </div>
+  </article>
 </template>
+

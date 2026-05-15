@@ -1,72 +1,50 @@
 <script lang="ts" setup>
-import { annotate } from 'rough-notation'
-
 const props = defineProps({
   info: {
-    type: Array as PropType<{
-      title: string
-      description: string
-      url: string
-      image: string
-      tech: string[]
-      visible: boolean
-      size: string
-      fullimage: string
-      type: string
-      github: string
-      zoom?: number
-      offset?: { x: number; y: number }
-    }[]>,
+    type: Array as PropType<any[]>,
     required: true,
   },
 })
 
-onMounted(() => {
-  if (process.client) {
-    const isInViewport = (el: HTMLElement) => {
-      const rect = el.getBoundingClientRect()
-      return (
-        rect.top >= 0
-        && rect.left >= 0
-        && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      )
-    }
-
-    const handleScroll = () => {
-      const el: HTMLElement = document.querySelector('#extra')!
-      if (isInViewport(el)) {
-        // timeout
-        setTimeout(() => {
-          const annotation = annotate(el, { type: 'underline', color: '#f9d56e' })
-          annotation.show()
-        }, 1000)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-  }
-})
+const visibleItems = computed(() => props.info.filter(item => item.visible))
 </script>
 
 <template>
-  <div class="py-12 mx-auto container">
-    <div class="w-full mx-auto">
-      <h2
-        id="extra"
-        class="tracking-wide uppercase text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
-      >
-        Extra
-      </h2>
-      <p class="mt-6 mb-6 text-xl text-gray-500">
-        More projects.
-      </p>
-    </div>
+  <section id="extra-section" class="relative py-24">
 
-    <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <template v-for="post in props.info">
-        <PortfolioCard v-if="post.visible" :key="post.title" :info="post" />
-      </template>
+    <div class="section-divider absolute top-0 left-0 right-0" />
+
+    <div class="container">
+
+      <!-- Section header -->
+      <div class="mb-14">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-mono text-xs text-[#FF5E1F] tracking-[0.22em] uppercase">03 · Extra</span>
+          <div class="h-px flex-1 max-w-[180px] bg-gradient-to-r from-[rgba(255,94,31,0.4)] to-transparent" />
+        </div>
+        <h2 id="extra" class="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
+          More Projects
+        </h2>
+        <p class="text-[#9A9A9A] text-base md:text-lg max-w-xl">
+          Side projects, experiments, and open source contributions.
+        </p>
+      </div>
+
+      <!-- Project rows with dots separator -->
+      <div class="flex flex-col">
+        <template v-for="(post, idx) in visibleItems" :key="post.title">
+          <PortfolioCard :info="post" :index="idx" />
+
+          <div v-if="idx < visibleItems.length - 1" class="flex items-center justify-center gap-1.5 py-8">
+            <div
+              v-for="n in 48"
+              :key="n"
+              class="w-[3px] h-[3px] rounded-full"
+              :class="n % 8 === 0 ? 'bg-[rgba(255,94,31,0.28)]' : 'bg-white/[0.07]'"
+            />
+          </div>
+        </template>
+      </div>
     </div>
-  </div>
+  </section>
 </template>

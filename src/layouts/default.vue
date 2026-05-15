@@ -1,36 +1,17 @@
 <script setup>
-import { onMounted } from 'vue'
-
 onMounted(() => {
-  const messages = [
-    {
-      text: '%c👋 Welcome!',
-      style: `
-                font-size: 24px;
-                font-weight: bold;
-                color: #F9D56E;
-                background: linear-gradient(to right, #10101A, #28283A);
-                padding: 8px 16px;
-                border-radius: 4px;
-            `,
-    },
-    {
-      text: '%c🎨 Ping me on Twitter! https://x.com/matifanger',
-    },
-    {
-      text: '%c⚡ Mail me @ matifanger@outlook.com',
-    },
-    {
-      text: '%c Thanks for stopping by!',
-    },
+  const msgs = [
+    ['%c👋 Hey, snooper!', 'font-size:18px;font-weight:bold;color:#FF5E1F;background:#1C1B1B;padding:6px 12px;border-radius:4px;'],
+    ['%c📌 Twitter → https://x.com/matifanger', 'color:#9A9A9A;'],
+    ['%c✉️  Mail   → matifanger@outlook.com', 'color:#9A9A9A;'],
+    ['%c   Thanks for visiting!', 'color:#555555;'],
   ]
-
-  messages.forEach(msg => console.log(msg.text, msg.style))
+  msgs.forEach(([text, style]) => style ? console.log(text, style) : console.log(text))
 })
 </script>
 
 <template>
-  <div class="relative w-full min-h-screen bg-[#10101A] font-Poppins">
+  <div class="relative w-full min-h-screen bg-[#151414] font-Satoshi">
     <Header />
     <slot />
     <Footer />
@@ -38,25 +19,18 @@ onMounted(() => {
 </template>
 
 <style lang="postcss">
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-    width: 16px;
+  width: 8px;
 }
-
 *::-webkit-scrollbar-track {
-    background: #10101a;
+  background: #151414;
 }
-
 *::-webkit-scrollbar-thumb {
-    background-color: #28283a;
-    border-radius: 10px;
-    border: 4px solid #10101a;
+  background-color: #2A2929;
+  border-radius: 10px;
+  border: 2px solid #151414;
 }
-/* On hover */
 *::-webkit-scrollbar-thumb:hover {
-    background-color: #f9d56e;
+  background-color: #3D3C3C;
 }
 </style>

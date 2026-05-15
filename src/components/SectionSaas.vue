@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import colorDict from '@/composables/colorDict'
 import sortByImportance from '@/composables/sortByImportance'
-import { annotate } from 'rough-notation'
 
 const props = defineProps({
   info: {
@@ -10,139 +9,132 @@ const props = defineProps({
   },
 })
 
-onMounted(() => {
-  if (process.client) {
-    const isInViewport = (el: any) => {
-      const rect = el.getBoundingClientRect()
-      return (
-        rect.top >= 0
-        && rect.left >= 0
-        && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      )
-    }
+const get = (item: any, key: string) => (item as any)[key]
 
-    const handleScroll = () => {
-      const el: any = document.querySelector('#saas')!
-      if (isInViewport(el)) {
-        // timeout
-        setTimeout(() => {
-          const annotation = annotate(el, { type: 'underline', color: '#f9d56e' })
-          annotation.show()
-        }, 1000)
-      }
-    }
+const visibleItems = computed(() => (props.info as any[]).filter(item => get(item, 'visible')))
 
-    window.addEventListener('scroll', handleScroll)
-  }
-})
+const isEven = (idx: number) => idx % 2 === 0
+const indexLabel = (idx: number) => String(idx + 1).padStart(2, '0')
 
-const getImageStyles = (item: any) => {
-  const zoom = item.zoom || 1
-  const offsetX = item.offset?.x || 0
-  const offsetY = item.offset?.y || 0
-  
-  let styles = 'object-fit: cover; width: 100%; height: 100%;'
-  
-  // Usar object-position para el offset
-  if (offsetX !== 0 || offsetY !== 0) {
-    const posX = 50 + (offsetX / 3) // Ajustar sensibilidad
-    const posY = 50 + (offsetY / 3) // Ajustar sensibilidad
-    styles += `object-position: ${posX}% ${posY}%;`
-  }
-  
-  // Usar transform para el zoom
-  if (zoom !== 1) {
-    styles += `transform: scale(${zoom}); transform-origin: center center;`
-  }
-  
-  return styles
-}
 
-const shouldDisableHover = (item: any) => {
-  return item.zoom !== undefined || item.offset !== undefined
-}
-
-const getItemValue = (item: any, key: string) => {
-  return (item as any)[key]
-}
 </script>
 
 <template>
-  <div class="py-12 mx-auto container">
-    <div class="w-full mx-auto">
-      <h2
-        id="saas"
-        class="tracking-wide uppercase text-[#f9d56e] font-semibold text-3xl sm:text-4xl w-fit"
-      >
-        SaaS
-      </h2>
-      <p class="mt-6 mb-6 text-xl text-gray-500">
-        SaaS I've built or i'm building.
-      </p>
-    </div>
+  <section id="saas-section" class="relative py-24">
 
-    <div class="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <template v-for="(item, key) in props.info">
-        <a v-if="getItemValue(item, 'visible')" :key="key" class="group" :href="getItemValue(item, 'url')" target="_blank">
-          <div
-            class="flex flex-col h-full overflow-hidden rounded shadow-md hover:shadow-lg border border-opacity-70 border-gray-800 group-hover:border-gray-700 transition cursor-pointer"
+    <div class="section-divider absolute top-0 left-0 right-0" />
+
+    <!-- Subtle grid bg -->
+    <div class="absolute inset-0 grid-lines opacity-50 pointer-events-none" />
+
+    <div class="container relative z-10">
+
+      <!-- Section header -->
+      <div class="mb-14">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-mono text-xs text-[#FF5E1F] tracking-[0.22em] uppercase">02 · SaaS</span>
+          <div class="h-px flex-1 max-w-[180px] bg-gradient-to-r from-[rgba(255,94,31,0.4)] to-transparent" />
+        </div>
+        <h2 id="saas" class="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
+          Products Built
+        </h2>
+        <p class="text-[#9A9A9A] text-base md:text-lg max-w-xl">
+          SaaS products I've built or am currently building and shipping.
+        </p>
+      </div>
+
+      <!-- SaaS rows with dots separator -->
+      <div class="flex flex-col">
+        <template v-for="(item, idx) in visibleItems" :key="get(item, 'title')">
+
+          <!-- SaaS card row -->
+          <article
+            class="flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#1C1B1B] lg:min-h-[380px]"
+            :class="isEven(idx) ? 'lg:flex-row' : 'lg:flex-row-reverse'"
           >
-            <div class="w-full h-56 sm:h-48 overflow-hidden relative">
+            <!-- Image side -->
+            <div class="relative h-64 lg:h-auto lg:w-[55%] flex-shrink-0 overflow-hidden bg-[#232222]">
               <img
-                class="object-cover w-full h-full transition"
-                :class="getItemValue(item, 'zoom') || getItemValue(item, 'offset') ? '' : 'group-hover:scale-105'"
-                :src="getItemValue(item, 'image')"
-                :alt="getItemValue(item, 'title')"
-                :style="'clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 80%); ' + getImageStyles(item)"
+                class="absolute inset-0 w-full h-full object-cover object-top"
+                :src="get(item, 'image')"
+                :alt="get(item, 'title')"
               >
-            </div>
 
-            <div class="p-4 -mt-6 overflow-y-visiblerflow-hidden md:-mt-8 flex-1 flex flex-col">
-              <div class="font-sans text-lg font-semibold text-slate-200 md:text-xl">
-                {{ getItemValue(item, 'title') }}
-              </div>
 
-              <div class="md:mt-2">
-                <p
-                  class="font-sans text-base antialiased font-semibold leading-6 text-slate-400 md:text-lg"
-                >
-                  {{ getItemValue(item, 'description') }}
-                </p>
-              </div>
-
-              <div class="flex gap-3 pt-1 md:pt-4 grow items-end">
-                <div v-if="getItemValue(item, 'showmmr')" class="flex items-center text-gray-200 gap-1">
-                  <div class="text-green-500 flex items-center">
-                    <UnoIcon class="i-mdi:cash" />
-                  </div>
-                  <h1 class="text-sm">{{ getItemValue(item, 'mmr') }} MMR</h1>
-                </div>
-
-                <div v-if="getItemValue(item, 'device')" class="flex items-center text-gray-200 gap-1">
-                  <div class="i-mdi:home" />
-                  <h1 class="text-sm">{{ getItemValue(item, 'device') }}</h1>
-                </div>
+              <!-- MRR badge -->
+              <div
+                v-if="get(item, 'showmmr')"
+                class="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-black/65 backdrop-blur-sm border border-green-400/20 rounded-full px-3 py-1"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-glow-pulse" />
+                <span class="text-xs font-mono text-green-300 font-semibold">{{ get(item, 'mmr') }} MRR</span>
               </div>
             </div>
 
-            <div
-              v-if="getItemValue(item, 'tech') && getItemValue(item, 'tech').length > 0"
-              class="flex p-4 align-middle border-t border-opacity-70 border-gray-800 group-hover:border-gray-700 transition"
-            >
-              <div class="flex gap-2 flex-wrap">
+            <!-- Content side -->
+            <div class="flex flex-col flex-1 p-6 lg:p-9 lg:w-[45%]">
+
+              <!-- Index + SaaS label -->
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-mono text-xs text-[#FF5E1F]/60 tabular-nums">{{ indexLabel(idx) }}</span>
+                <span class="inline-flex items-center leading-none text-[10px] font-mono text-white font-semibold uppercase tracking-wide bg-[rgba(255,94,31,0.88)] px-2.5 py-1 rounded-full">SaaS</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl lg:text-2xl font-bold text-white leading-snug mb-3">
+                {{ get(item, 'title') }}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-[#C2C2C2] text-sm lg:text-base leading-relaxed flex-1 mb-5">
+                {{ get(item, 'description') }}
+              </p>
+
+              <!-- Device info -->
+              <div v-if="get(item, 'device')" class="flex items-center gap-2 mb-4 text-[#888888]">
+                <div class="i-mdi:monitor text-sm" />
+                <span class="text-xs font-mono">{{ get(item, 'device') }}</span>
+              </div>
+
+              <!-- Tech tags -->
+              <div v-if="get(item, 'tech')?.length" class="flex flex-wrap gap-1.5 mb-7">
                 <span
-                  v-for="(tag, sk) in sortByImportance(getItemValue(item, 'tech'))"
+                  v-for="(tag, sk) in sortByImportance(get(item, 'tech'))"
                   :key="sk"
-                  class="font-sans text-xs p-1 bg-gray-700 bg-opacity-20 text-opacity-80 font-medium uppercase md:text-sm"
+                  class="font-mono text-xs px-2 py-0.5 bg-white/[0.05] border border-white/[0.09] rounded-md uppercase tracking-wide"
                   :class="colorDict[tag.toLowerCase() as keyof typeof colorDict]"
-                >{{ tag }}
-                </span>
+                >{{ tag }}</span>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="flex gap-2.5 flex-wrap mt-auto">
+                <a
+                  v-if="get(item, 'url')"
+                  :href="get(item, 'url')"
+                  target="_blank"
+                  class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#FF5E1F] text-white text-sm font-semibold rounded-lg hover:bg-[#FF7A45] transition-colors"
+                  data-tooltip="Visit product"
+                >
+                  Visit site
+                  <div class="i-mdi:open-in-new text-sm" />
+                </a>
               </div>
             </div>
+          </article>
+
+          <!-- Dots separator -->
+          <div v-if="idx < visibleItems.length - 1" class="flex items-center justify-center gap-1.5 py-8">
+            <div
+              v-for="n in 48"
+              :key="n"
+              class="w-[3px] h-[3px] rounded-full"
+              :class="n % 8 === 0 ? 'bg-[rgba(255,94,31,0.28)]' : 'bg-white/[0.07]'"
+            />
           </div>
-        </a>
-      </template>
+
+        </template>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
+

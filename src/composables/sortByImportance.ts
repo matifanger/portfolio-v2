@@ -27,9 +27,15 @@ export default function (items: string[]) {
     'anthropic',
     'cloudflare',
     'polar',
+    'svelte',
+    'supabase',
+    'strapi',
+    'n8n',
+    'airtable',
     'desktop',
     'electron',
     'shadcn',
+    'shadcn/ui',
   ]
 
   const sortedItems = items.sort((a, b) => {
