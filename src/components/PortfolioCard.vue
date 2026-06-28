@@ -73,7 +73,7 @@ onMounted(() => {
   >
 
     <!-- ── IMAGE SIDE (55%) ── -->
-    <div class="relative h-64 lg:h-auto lg:w-[55%] flex-shrink-0 overflow-hidden bg-[#232222]">
+    <div class="relative h-64 lg:h-auto lg:w-[55%] flex-shrink-0 overflow-hidden bg-[#1C1B1B]">
 
       <!-- Fallback gradient placeholder -->
       <template v-if="imageNotAvailable">
@@ -84,14 +84,15 @@ onMounted(() => {
         </div>
       </template>
 
-      <!-- Actual image -->
-      <img
-        v-else
-        class="absolute inset-0 w-full h-full object-cover object-top"
-        :src="info.image"
-        :alt="info.title"
-        @error="imageNotAvailable = true"
-      >
+      <!-- Actual image with cover inside rounded container -->
+      <div v-else class="absolute inset-3 lg:inset-4 overflow-hidden rounded-lg">
+        <img
+          class="w-full h-full object-cover object-top"
+          :src="info.image"
+          :alt="info.title"
+          @error="imageNotAvailable = true"
+        >
+      </div>
 
     </div>
 
