@@ -87,7 +87,7 @@ onMounted(() => {
       <!-- Actual image -->
       <img
         v-else
-        class="absolute inset-0 w-full h-full object-cover object-top"
+        class="absolute inset-0 w-full h-full object-cover object-center"
         :src="info.image"
         :alt="info.title"
         @error="imageNotAvailable = true"
@@ -130,7 +130,7 @@ onMounted(() => {
           v-for="(item, key) in sortByImportance(info.tech)"
           :key="key"
           class="font-mono text-xs px-2 py-0.5 bg-white/[0.05] border border-white/[0.09] rounded-md uppercase tracking-wide"
-          :class="colorDict[item.toLowerCase() as keyof typeof colorDict]"
+          :class="colorDict[item.toLowerCase()] || 'text-white/70'"
         >{{ item }}</span>
       </div>
 

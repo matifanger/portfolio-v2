@@ -102,7 +102,7 @@ const indexLabel = (idx: number) => String(idx + 1).padStart(2, '0')
                   v-for="(tag, sk) in sortByImportance(get(item, 'tech'))"
                   :key="sk"
                   class="font-mono text-xs px-2 py-0.5 bg-white/[0.05] border border-white/[0.09] rounded-md uppercase tracking-wide"
-                  :class="colorDict[tag.toLowerCase() as keyof typeof colorDict]"
+                  :class="colorDict[tag.toLowerCase()] || 'text-white/70'"
                 >{{ tag }}</span>
               </div>
 

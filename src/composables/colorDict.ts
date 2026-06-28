@@ -1,9 +1,9 @@
 export default {
-  // Vue 2, Vue 3, Nuxt 2, Nuxt 3, React, React Native, Pinia, TypeScript, Tailwind CSS, Nest.js, PostgreSQL, Python, Vuex, Firebase, Vuetify
   'vue 2': 'text-green-500',
   'vue 3': 'text-green-400',
   'nuxt 2': 'text-green-500',
   'nuxt 3': 'text-green-400',
+  'nuxt 4': 'text-green-300',
   'nuxthub': 'text-green-300',
   'nuxt ui': 'text-green-300',
   'react': 'text-blue-500',
@@ -13,7 +13,9 @@ export default {
   'typescript': 'text-blue-600',
   'tailwind css': 'text-blue-500',
   'nest.js': 'text-red-400',
+  'node.js': 'text-green-500',
   'postgresql': 'text-blue-300',
+  'mysql': 'text-sky-400',
   'python': 'text-blue-400',
   'firebase': 'text-yellow-500',
   'vuetify': 'text-blue-500',
@@ -22,6 +24,7 @@ export default {
   'openai': 'text-gray-200',
   'anthropic': 'text-orange-500',
   'cloudflare': 'text-orange-400',
+  'cloudflare workers': 'text-orange-300',
   'polar': 'text-purple-400',
   'drizzle': 'text-green-500',
   'eslint': 'text-purple-600',
@@ -34,4 +37,9 @@ export default {
   'strapi': 'text-indigo-400',
   'n8n': 'text-red-400',
   'svelte': 'text-orange-500',
-}
+  'docker': 'text-blue-400',
+  'ec2': 'text-amber-400',
+  'vercel': 'text-gray-300',
+  'php': 'text-indigo-400',
+  'symfony': 'text-gray-300',
+} as Record<string, string>
