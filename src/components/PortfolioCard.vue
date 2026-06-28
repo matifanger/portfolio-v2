@@ -87,7 +87,7 @@ onMounted(() => {
       <!-- Actual image -->
       <img
         v-else
-        class="absolute inset-0 w-full h-full object-cover object-center"
+        class="absolute inset-0 w-full h-full object-cover object-top"
         :src="info.image"
         :alt="info.title"
         @error="imageNotAvailable = true"
